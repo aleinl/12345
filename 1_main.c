@@ -2,24 +2,26 @@
 //2490249791@qq.com
 //陶磊
 #include <stdio.h>
- 
+
 int main() {
-    int n;
-    scanf("%d", &n);
+    int matrix[3][3];  // 定义3x3矩阵
     
-    if (n < 2) {
-        printf("密钥不安全，请重新输入");
-        return 0;
-    }
-    
-    for (int i = 2; i < n; i++) {
-        if (n % i == 0) {
-            printf("密钥不安全，请重新输入");
-            scanf("%d",&n);
-            
+    // 输入矩阵
+    printf("请输入3x3矩阵的元素：\n");
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            scanf("%d", &matrix[i][j]);
         }
     }
     
-    printf("密钥安全，密码设置成功");
+    // 输出矩阵
+    printf("输出结果：\n");
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");  // 每行输出后换行
+    }
+    
     return 0;
 }
