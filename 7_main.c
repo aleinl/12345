@@ -3,28 +3,36 @@
 //陶磊
 #include <stdio.h>
 
+void bubbleSort(int *arr, int n) {
+    int i, j, temp;
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+           
+            if (*(arr + j) > *(arr + j + 1)) {
+               
+                temp = *(arr + j);
+                *(arr + j) = *(arr + j + 1);
+                *(arr + j + 1) = temp;
+            }
+        }
+    }
+}
+
 int main() {
-    int arr[5];
+    int arr[10];
+    int i;
     
-    // 1. 输入前4位学生学号
-    for(int i = 0; i < 4; i++) {
+    
+    for (i = 0; i < 10; i++) {
         scanf("%d", &arr[i]);
     }
     
-    // 2. 将数组元素整体后移一位
-    for(int i = 3; i >= 0; i--) {
-        arr[i + 1] = arr[i];
-    }
+   
+    bubbleSort(arr, 10);
     
-    // 3. 在空出的第1位补0
-    arr[0] = 0;
     
-    // 4. 输出更新后的完整提交记录数组
-    for(int i = 0; i < 5; i++) {
-        printf("%d", arr[i]);
-        if(i < 4) {
-            printf(" ");
-        }
+    for (i = 0; i < 10; i++) {
+        printf("%d ", arr[i]);
     }
     
     return 0;
