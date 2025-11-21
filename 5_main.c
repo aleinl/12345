@@ -3,26 +3,30 @@
 //陶磊
 #include <stdio.h>
 
+#include <stdio.h>
+
+void shiftArray(int *ptr_arr, int len) {
+    
+    for(int i = len - 2; i >= 0; i--) {
+        *(ptr_arr + i + 1) = *(ptr_arr + i);
+    }
+    
+    *ptr_arr = 0;
+}
+
 int main() {
     int arr[5];
     
-    // 读取前四个数
-    for(int i = 0; i < 4; i++) {
+    
+    for(int i = 0; i < 5; i++) {
         scanf("%d", &arr[i]);
     }
     
-    // 计算第五个数为前四个数的和
-    arr[4] = 0;
-    for(int i = 0; i < 4; i++) {
-        arr[4] += arr[i];
-    }
     
-    // 输出结果
+    shiftArray(arr, 5);
+   
     for(int i = 0; i < 5; i++) {
-        printf("%d", arr[i]);
-        if(i < 4) {
-            printf(" ");
-        }
+        printf("%d ", arr[i]);
     }
     
     return 0;
