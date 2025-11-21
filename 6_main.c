@@ -2,31 +2,23 @@
 //2490249791@qq.com
 //陶磊
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
-    int arr[5];
-    int count = 0;
+   
+    int *ptr = (int*)malloc(5 * sizeof(int));
     
-    // 读取5个偶数
-    while(count < 5) {
-        int num;
-        scanf("%d", &num);
-        
-        // 如果是偶数，则存入数组
-        if(num % 2 == 0) {
-            arr[count] = num;
-            count++;
-        }
-        // 如果是奇数，则忽略，继续等待输入
-    }
-    
-    // 输出结果
+  
     for(int i = 0; i < 5; i++) {
-        printf("%d", arr[i]);
-        if(i < 4) {
-            printf(" ");
-        }
+        scanf("%d", ptr + i);
     }
+   
+    for(int i = 0; i < 5; i++) {
+        printf("%d ", *(ptr + i));
+    }
+    
+    
+    free(ptr);
     
     return 0;
 }
